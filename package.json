@@ -1,0 +1,35 @@
+{
+  "author": {
+    "name": "Diego Mariño",
+    "url": "https://github.com/diegomarino/"
+  },
+  "bugs": {
+    "url": "https://github.com/diegomarino/handy-tool-bar/issues"
+  },
+  "consumedServices": {
+    "tool-bar": {
+      "versions": {
+        "^0 || ^1": "consumeToolBar"
+      }
+    }
+  },
+  "contributors": [],
+  "dependencies": {},
+  "description": "A handy (at least for me) tool-bar plugin for Atom",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/diegomarino/handy-tool-bar",
+  "keywords": ["tool-bar", "toolbar"],
+  "license": "MIT",
+  "main": "./lib/handy-tool-bar.coffee",
+  "name": "handy-tool-bar",
+  "package-deps": [
+    "tool-bar"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/diegomarino/handy-tool-bar.git"
+  },
+  "version": "0.1.0"
+}
