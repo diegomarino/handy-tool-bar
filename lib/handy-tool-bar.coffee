@@ -1,3 +1,31 @@
+# Copyright (c) 2020 <Diego Mariño>
+#
+# MIT License
+#
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so, subject to
+# the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+# LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+# WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+################################################################################
+# This is a fork from https://atom.io/packages/tool-bar-basic
+# I've left some of the original buttons commented below in case they are useful
+# for your workflow
+################################################################################
+
 module.exports =
   deactivate: ->
     @toolBar?.removeItems()
@@ -13,18 +41,17 @@ module.exports =
     #   tooltip: 'New File'
     #   iconset: 'icomoon'
 
-
     @toolBar.addButton
-      icon: 'file-text'
       callback: 'application:open-file'
-      tooltip: 'Open File'
+      icon: 'file-text'
       iconset: 'icomoon'
+      tooltip: 'Open File'
 
     @toolBar.addButton
-      'icon': 'folder-open'
       'callback': 'application:open-folder'
-      'tooltip': 'Open Folder'
+      'icon': 'folder-open'
       'iconset': 'icomoon'
+      'tooltip': 'Open Folder'
 
     # @toolBar.addButton
     #   'icon': 'floppy-disk'
@@ -49,51 +76,52 @@ module.exports =
     @toolBar.addSpacer()
 
     @toolBar.addButton
-      'icon': 'columns'
       'callback': 'pane:split-right'
-      'tooltip': 'Split Right'
+      'icon': 'columns'
       'iconset': 'fa'
+      'tooltip': 'Split Right'
 
     btn = @toolBar.addButton
-      'icon': 'columns'
       'callback': 'pane:split-down'
-      'tooltip': 'Split Down'
+      'icon': 'columns'
       'iconset': 'fa'
+      'tooltip': 'Split Down'
     btn.element.classList.add 'fa-rotate-270'
 
     @toolBar.addSpacer()
 
     @toolBar.addButton
-      'iconset': 'fa'
-      'icon': 'arrows-alt'
-      'tooltip': 'Toggle Fullscreen'
       'callback': 'window:toggle-full-screen'
+      'icon': 'screen-full'
+      'tooltip': 'Toggle Fullscreen'
 
     @toolBar.addButton
-      'icon': 'list'
       'callback': 'tree-view:toggle'
+      'icon': 'move-down'
+      'iconset': 'icomoon'
       'tooltip': 'Toggle Sidebar'
-      'iconset': 'fa'
 
     if atom.packages.loadedPackages['minimap']
       @toolBar.addButton
-        'icon': 'eye'
-        'tooltip': 'Toggle Minimap'
         'callback': 'minimap:toggle'
+        'icon': 'map-marker-alt'
+        'iconset': 'fa'
+        'tooltip': 'Toggle Minimap'
 
     if atom.packages.loadedPackages['expose']
       @toolBar.addButton
-        'icon': 'browser'
-        'tooltip': 'Toggle Exposé'
         'callback': 'expose:toggle'
+        'icon': 'window-restore'
+        'iconset': 'fa'
+        'tooltip': 'Toggle Exposé'
 
     @toolBar.addSpacer()
 
     @toolBar.addButton
-      'icon': 'indent'
       'callback': 'editor:auto-indent'
-      'tooltip': 'Auto indent (selection)'
+      'icon': 'indent'
       'iconset': 'fa'
+      'tooltip': 'Auto indent (selection)'
 
     # @toolBar.addButton
     #   'icon': 'level-up-alt'
@@ -102,25 +130,26 @@ module.exports =
     #   'iconset': 'fa'
 
     @toolBar.addButton
-      'icon': 'level-down-alt'
       'callback': 'editor:unfold-all'
-      'tooltip': 'Unfold all'
+      'icon': 'level-down-alt'
       'iconset': 'fa'
+      'tooltip': 'Unfold all blocks'
 
 
     if atom.packages.loadedPackages['atom-beautify']
       @toolBar.addButton
-        'icon': 'star'
         'callback': 'atom-beautify:beautify-editor'
-        'tooltip': 'Beautify'
+        'icon': 'star'
         'iconset': 'fa'
+        'tooltip': 'Beautify code'
 
     if atom.packages.loadedPackages['terminal-plus']
       @toolBar.addSpacer()
       @toolBar.addButton
-        'icon': 'terminal'
         'callback': 'terminal-plus:toggle'
+        'icon': 'terminal'
         'tooltip': 'Toggle Terminal-plus'
+
     # else if atom.packages.loadedPackages['term2']
     #   @toolBar.addSpacer()
     #   @toolBar.addButton
@@ -140,74 +169,69 @@ module.exports =
     #     'callback': 'platformio-ide-terminal:toggle'
     #     'tooltip': 'Toggle platformio-ide-terminal'
 
-    # if atom.inDevMode()
-  #
-    #   @toolBar.addSpacer()
-  #
-    #   @toolBar.addButton
-    #     'icon': 'refresh'
-    #     'callback': 'window:reload'
-    #     'tooltip': 'Reload Window'
-    #     'iconset': 'ion'
-  #
-    #   @toolBar.addButton
-    #     'icon': 'bug'
-    #     'callback': 'window:toggle-dev-tools'
-    #     'tooltip': 'Toggle Developer Tools'
+    if atom.inDevMode()
+      @toolBar.addButton
+        'callback': 'window:reload'
+        'icon': 'redo'
+        'iconset': 'fa'
+        'tooltip': 'Reload Window'
+
+      @toolBar.addButton
+        'callback': 'window:toggle-dev-tools'
+        'icon': 'tools'
+        'tooltip': 'Toggle Developer Tools'
 
     if atom.packages.loadedPackages['git-plus']
       @toolBar.addSpacer()
       @toolBar.addButton
-        'icon' : 'git-plain'
         'callback' : 'git-plus:menu'
-        'tooltip' : 'Git plus'
+        'icon' : 'git-plain'
         'iconset' : 'devicon'
+        'tooltip' : 'Git plus'
 
     if atom.packages.loadedPackages['script']
       @toolBar.addSpacer()
       @toolBar.addButton
-        'icon': 'play'
         'callback': 'script:run'
+        'icon': 'play'
+        'iconset': 'fa'
         'tooltip': 'Run script'
-        'iconset': 'fa'
       @toolBar.addButton
-        'icon': 'stop'
         'callback': 'script:kill-process'
+        'icon': 'stop'
+        'iconset': 'fa'
         'tooltip': 'Stop script'
-        'iconset': 'fa'
       @toolBar.addButton
-        'icon': 'cogs'
         'callback': 'script:run-options'
-        'tooltip': 'Configure script'
+        'icon': 'cogs'
         'iconset': 'fa'
+        'tooltip': 'Configure script'
 
     @toolBar.addSpacer()
 
     if atom.packages.loadedPackages['markdown-preview-plus']
       @toolBar.addButton
-        'icon': 'markdown'
         'callback': 'markdown-preview-plus:toggle'
+        'icon': 'markdown'
         'tooltip': 'Markdown Preview'
     else
       @toolBar.addButton
-        'icon': 'markdown'
         'callback': 'markdown-preview:toggle'
+        'icon': 'markdown'
         'tooltip': 'Markdown Preview'
 
     if atom.packages.loadedPackages['atom-html-preview']
       @toolBar.addButton
-        'icon': 'logo-html5'
         'callback': 'atom-html-preview:toggle'
-        'tooltip': 'HTML Preview'
+        'icon': 'logo-html5'
         'iconset': 'ion'
-
+        'tooltip': 'HTML Preview'
 
     if atom.packages.loadedPackages['atom-live-server']
       @toolBar.addButton
-        'icon': 'sync'
         'callback': 'atom-live-server:start-3000'
+        'icon': 'sync'
         'tooltip': 'HTML Live Server'
-        'iconset': 'fa'
 
     # @toolBar.addSpacer()
   #
@@ -220,7 +244,7 @@ module.exports =
     @toolBar.addSpacer()
 
     @toolBar.addButton
-      'icon': 'palette'
       'callback': 'command-palette:toggle'
-      'tooltip': 'Toggle Command Palette'
+      'icon': 'palette'
       'iconset': 'fa'
+      'tooltip': 'Toggle Command Palette'
