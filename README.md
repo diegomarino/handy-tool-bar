@@ -1,5 +1,7 @@
 # handy-tool-bar
 
+![APM](https://img.shields.io/apm/v/handy-tool-bar) ![APM](https://img.shields.io/apm/dm/handy-tool-bar) ![GitHub last commit](https://img.shields.io/github/last-commit/diegomarino/handy-tool-bar) ![APM](https://img.shields.io/apm/l/handy-tool-bar)
+
 ## About
 
  A handy (at least for me) '[tool-bar](https://atom.io/packages/tool-bar)' plugin for Atom
@@ -22,7 +24,7 @@ In both cases, it will be stored in your `~/.atom/packages` folder
 
 ## Buttons
 
--   ![Open File](/images/file-text.png) File
+-   ![Open File](/images/file-text.png) Open File
 -   ![Open Folder](/images/folder-open.png) Open Folder
 -   ![List Projects](/images/file-submodule.png) List Projects (if '[project-manager](https://atom.io/packages/project-manager)' is installed)  
     <br>
